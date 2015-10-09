@@ -52,5 +52,14 @@ public class EmailListServlet extends HttpServlet {
         getServletContext()
                 .getRequestDispatcher(url)
                 .forward(request, response);
+        String p = request.getParameter("action");
+        System.out.println("EmailListServlet action " + p);
+        log("EmailListServlet action " + p);
+    }
+    @Override
+    protected void doGet(HttpServletRequest request,
+            HttpServletResponse response)
+            throws ServletException, IOException{
+      doPost(request, response);
     }
 }
